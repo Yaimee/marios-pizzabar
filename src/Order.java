@@ -6,8 +6,10 @@ public class Order {
 
     public String getReciept(){
 
-        return "receipt";
+        return "order number: " + orderNr + "\n" + pizzas.toString();
     }
+
+
     //code of Balthazar end
 
 }

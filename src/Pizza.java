@@ -1,8 +1,8 @@
 public class Pizza {
     //Code of Jacob (start)
-    public int id;
-    public int price;
-    public String name;
+    private int id;
+    private int price;
+    private String name;
 
 
     public Pizza(int id, int price, String name) {
@@ -17,4 +17,10 @@ public class Pizza {
                 price + ",-";
     }
     //Code of Jacob (end)
+    //code of Balthazar (start)
+
+    public String getName() {
+        return name;
+    }
+    //code of Balthazar (end)
 }

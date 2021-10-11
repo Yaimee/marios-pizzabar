@@ -14,15 +14,11 @@ public class Menu {
     public int[] getPizzaPrice() {
         return pizzaPrices;
     }
-    public void setPizzaPrice(int[] pizzaPrice) {
-        this.pizzaPrices = pizzaPrice;
-    }
+
     public String[] getPizzaName() {
         return pizzaName;
     }
-    public void setPizzaName(String[] pizzaName) {
-        this.pizzaName = pizzaName;
-    }
+
     public String[] getPizzaIngredients() {
         return pizzaIngredients;
     }
@@ -41,8 +37,6 @@ public class Menu {
         Pizza pizza8 = new Pizza(8,61, "Victoria");
         Pizza pizza9 = new Pizza(9,61, "Toronfo");
         Pizza pizza10 = new Pizza(10,61, "Capricciosa");
-
-
     }
 }
 
