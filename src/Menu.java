@@ -3,7 +3,7 @@ public class Menu {
     private int[] pizzaPrices;
     private String[] pizzaName;
     private String[] pizzaIngredients;
-    private int pizzaID;
+    private Pizza pizzaID;
 
 
     public Menu(int[] pizzaPrices, String[] pizzaName) {
