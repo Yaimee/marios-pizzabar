@@ -1,5 +1,5 @@
 public class Order {
-    //code of Balthazar
+    //code of Balthazar start
     private Pizza[] pizzas;
     private int pickUpTime;
     private String orderNr;
@@ -8,4 +8,6 @@ public class Order {
 
         return "receipt";
     }
+    //code of Balthazar end
+
 }
