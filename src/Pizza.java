@@ -17,8 +17,8 @@ public class Pizza {
                 price + ",-";
     }
     //Code of Jacob (end)
-    //code of Balthazar (start)
 
+    //code of Balthazar (start)
     public String getName() {
         return name;
     }
