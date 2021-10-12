@@ -1,46 +1,104 @@
 import java.util.Scanner;
+import java.util.Arrays;
 
 public class Main {
 
     static Scanner scan = new Scanner(System.in);
     static boolean run;
-
+    static boolean run2;
+    //rasmus's kode start
     static public void mario() {
-        System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next pizza\n3. print menu\n4. print completed orders.");
-        int select = scan.nextInt();
-        scan.nextLine();
-        if (select == 1) {
-
-            System.out.println();
-        } else if (select == 2) {
-            System.out.println("Next pizza is: ");
-            System.out.println("");
-        } else if (select == 3) {
-            System.out.println("The menu is: ");
-            for(int i = 1; i <= 10; i++) {
-                System.out.println(Menu.getPizzaNumber(i));
-                System.out.println("hej");
+        do {
+            run = false;
+            try {
+                System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next order\n3. print menu\n4. print completed orders.");
+                int select = scan.nextInt();
+                scan.nextLine();
+                if (select == 1) {
+                    try {
+                        for (int i = 0; i < Order.getActiveOrders().length; i++) {
+                            System.out.println(Order.getActiveOrders()[i]);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("There are no active orders at the moment.");
+                    }
+                } else if (select == 2) {
+                    System.out.println("Next order is: ");
+                    System.out.println(Order.getActiveOrders()[0]);
+                } else if (select == 3) {
+                    System.out.println("The menu is: ");
+                    for(int i = 1; i <= 10; i++) {
+                        System.out.println(Menu.getPizzaNumber(i));
+                    }
+                } else if (select == 4) {
+                    for (int i = 0; i < Order.getCompletedOrders().length; i++) {
+                        System.out.println(Order.getCompletedOrders()[i]);
+                    }
+                } else {
+                    System.out.println("Illegal value! Please try again.");
+                }
+            } catch (Exception e) {
+                System.out.println("Illegal value! Try again.");
+                run = true;
+            }
+        } while (run);
+    }
+    //rasmus's kode slut
+    //rasmus's kode start
+    static public void alfonso() {
+        System.out.println("You've chosen Alfonso.");
+        do {
+            run = false;
+            System.out.println("Create new order");
+            Order order = createNewOrder();
+            Order.setActiveOrders(rearrageAccordingToPickupTime(Order.getActiveOrders().length));
+            System.out.println(order.toString());
+            do {
+                System.out.println("Would you like to create another order? (y/n)");
+                try {
+                    String choice = scan.nextLine();
+                    if (choice.equals("y")) {
+                        run = true;
+                    } else if (choice.equals("n")) {
+                        System.out.println("Goodbye!");
+                    } else {
+                        System.out.println("Illegal value! Please try again.");
+                        run2 = true;
+                    }
+                } catch (Exception e) {
+                    System.out.println("Illegal value! Please try again.");
+                    run2 = true;
+                }
+            } while (run2);
+        } while (run);
+    }
+    //rasmus's kode slut
+    //rasmus's kode start
+    public static Order[] rearrageAccordingToPickupTime (int length) {
+        Order[] ordersSorted = new Order[length];
+        int[] pickUpTimeSorted = new int[length];
+        for (int i = 0; i < length; i++) {
+            pickUpTimeSorted[i] = Order.getActiveOrders()[i].getPickUpTime();
+        }
+        Arrays.sort(pickUpTimeSorted);
+        for (int i = 0; i < length; i++) {
+            for (int u = 0; u < length; u++) {
+                if (pickUpTimeSorted[i] == Order.getActiveOrders()[u].getPickUpTime()) {
+                    ordersSorted[i] = Order.getActiveOrders()[u];
+                }
             }
         }
+        return ordersSorted;
     }
-
-    static public void alfonso() {
-        System.out.println("You've chosen Alfonso.\n What would you like to do?\n1. create new order\n");
-        int select = scan.nextInt();
-        if (select == 1){
-            Order order = createNewOrder();
-            System.out.println(order.toString());
-        }
-    }
+    // rasmus's kode slut
     // code of Balthazar(start)
     static public Order createNewOrder(){
-        Scanner scanner = new Scanner(System.in);
         Pizza[] pizzas = new Pizza[0];
         int pizzaId;
         int minimumTime = 0;
         int orderNr = 0;
         System.out.println("which pizza do you want to add");
-        pizzaId = scanner.nextInt();
+        pizzaId = scan.nextInt();
         do {
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
@@ -50,7 +108,7 @@ public class Main {
             newPizzas[newPizzas.length-1] = pizza;
             pizzas = newPizzas;
             System.out.println("witch pizza do you want to add (0 for no more pizzas)");
-            pizzaId = scanner.nextInt();
+            pizzaId = scan.nextInt();
         } while (pizzaId != 0);
         try {
             for (int i = 0; i < Order.getActiveOrders().length; i++) {
@@ -60,7 +118,7 @@ public class Main {
             minimumTime = 15;
         }
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
-        int pickUpTime = scanner.nextInt();
+        int pickUpTime = scan.nextInt();
         if (pickUpTime < minimumTime){
             pickUpTime = minimumTime;
         }
@@ -95,6 +153,7 @@ public class Main {
     // code of Balthazar(end)
 
     public static void main(String[] args) {
+        // rasmus's kode start
         do {
             run = false;
             try {
@@ -113,6 +172,7 @@ public class Main {
                 run = true;
             }
         } while (run);
+        // rasmus's kode slut
 
     }
 }
