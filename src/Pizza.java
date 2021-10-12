@@ -1,5 +1,6 @@
 public class Pizza {
-    //Code of Jacob (start)
+    //Code by Timmie & Jacob - start
+
     private int id;
     private int price;
     private String name;
@@ -16,11 +17,11 @@ public class Pizza {
         return id + ".\t" + name + ":....................." +
                 price + ",-";
     }
-    //Code of Jacob (end)
+    //Code by Timmie & Jacob - end
 
-    //code of Balthazar (start)
+    //Code by Balthazar - start
     public String getName() {
         return name;
     }
-    //code of Balthazar (end)
+    //Code by Balthazar - end
 }
