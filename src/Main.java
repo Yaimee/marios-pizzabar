@@ -6,13 +6,12 @@ public class Main {
     static boolean run;
 
     static public void mario() {
-        System.out.println("You've chosen Mario. What would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
+        System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next pizza\n3. print menu\n4. print completed orders.");
         int select = scan.nextInt();
         scan.nextLine();
         if (select == 1) {
-            for (int i = 0; i < Order.getActiveOrders().length; i++) {
 
-            }
+            System.out.println();
         } else if (select == 2) {
             System.out.println("Next pizza is: ");
             System.out.println("");

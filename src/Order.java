@@ -39,6 +39,7 @@ public class Order {
         for (int i = 1; i <= pizzas.length; i++) {
             pizzasConcatinated.concat(pizzas[i].toString().concat("\n"));
         }
+        return pizzasConcatinated;
     }
     public String toString() {
         return "" + pizzas + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
