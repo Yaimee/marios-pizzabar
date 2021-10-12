@@ -22,6 +22,10 @@ public class Order {
         return activeOrders;
     }
 
+    public int getPickUpTime() {
+        return pickUpTime;
+    }
+
     public Pizza[] getPizzas() {
         return pizzas;
     }
@@ -29,6 +33,15 @@ public class Order {
     public static Order[] getCompletedOrders() {
         return completedOrders;
     }
+
+    public String toString() {
+        return "" + pizzas + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
+    }
+
+    public static void setActiveOrders(Order[] activeOrders) {
+        Order.activeOrders = activeOrders;
+    }
+
     //code of Balthazar end
 
 }

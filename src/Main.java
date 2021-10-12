@@ -6,11 +6,13 @@ public class Main {
     static boolean run;
 
     static public void mario() {
-        System.out.println("You've chosen Mario.\nWhat would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
+        System.out.println("You've chosen Mario. What would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
         int select = scan.nextInt();
         scan.nextLine();
         if (select == 1) {
+            for (int i = 0; i < Order.getActiveOrders().length; i++) {
 
+            }
         } else if (select == 2) {
             System.out.println("Next pizza is: ");
             System.out.println("");
@@ -28,17 +30,19 @@ public class Main {
         int select = scan.nextInt();
         if (select == 1){
             Order order = createNewOrder();
+            System.out.println(order.toString());
         }
     }
-
+    // code of Balthazar(start)
     static public Order createNewOrder(){
         Scanner scanner = new Scanner(System.in);
         Pizza[] pizzas = new Pizza[0];
         int pizzaId;
         int minimumTime = 0;
+        int orderNr = 0;
+        System.out.println("which pizza do you want to add");
+        pizzaId = scanner.nextInt();
         do {
-            System.out.println("witch pizza do you want to add (0 for no more pizzas)");
-            pizzaId = scanner.nextInt();
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
             for (int i = 0; i < pizzas.length; i++) {
@@ -46,18 +50,50 @@ public class Main {
             }
             newPizzas[newPizzas.length-1] = pizza;
             pizzas = newPizzas;
+            System.out.println("witch pizza do you want to add (0 for no more pizzas)");
+            pizzaId = scanner.nextInt();
         } while (pizzaId != 0);
-        for (int i = 0; i < Order.getActiveOrders().length; i++) {
-            minimumTime = minimumTime + Order.getActiveOrders()[i].getPizzas().length;
+        try {
+            for (int i = 0; i < Order.getActiveOrders().length; i++) {
+                minimumTime = minimumTime + Order.getActiveOrders()[i].getPizzas().length;
+            }
+        } catch (Exception e) {
+            minimumTime = 15;
         }
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scanner.nextInt();
         if (pickUpTime < minimumTime){
             pickUpTime = minimumTime;
         }
-        int orderNr = Order.getActiveOrders().length + Order.getCompletedOrders().length;
-        return new Order(pizzas, pickUpTime, orderNr);
+        try {
+            orderNr = Order.getActiveOrders().length + Order.getCompletedOrders().length + 1;
+        } catch (Exception exception){
+            try {
+                orderNr = Order.getActiveOrders().length + 1;
+            } catch (Exception exception1){
+                try {
+                    orderNr = Order.getCompletedOrders().length + 1;
+                } catch (Exception exception2){
+                    orderNr = 1;
+                }
+            }
+        }
+        Order order = new Order(pizzas, pickUpTime, orderNr);
+        Order[] activeOrders = Order.getActiveOrders();
+        Order[] newActiveOrders;
+        try {
+            newActiveOrders = new Order[activeOrders.length + 1];
+            for (int i = 0; i < activeOrders.length; i++) {
+                newActiveOrders[i] = activeOrders[i];
+            }
+        }catch (Exception e){
+            newActiveOrders = new Order[1];
+        }
+        newActiveOrders[newActiveOrders.length-1] = order;
+        Order.setActiveOrders(newActiveOrders);
+        return order;
     }
+    // code of Balthazar(end)
 
     public static void main(String[] args) {
         do {
