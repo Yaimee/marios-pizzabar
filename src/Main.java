@@ -18,6 +18,7 @@ public class Main {
             System.out.println("The menu is: ");
             for(int i = 1; i <= 10; i++) {
                 System.out.println(Menu.getPizzaNumber(i));
+                System.out.println("hej");
             }
         }
     }
