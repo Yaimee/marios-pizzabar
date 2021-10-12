@@ -41,6 +41,7 @@ public class Order {
         }
         return pizzasConcatinated;
     }
+    @Override
     public String toString() {
         return getPizzas(pizzas) + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
     }
