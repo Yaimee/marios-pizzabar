@@ -17,19 +17,24 @@ public class Menu {
 
     public static Pizza getPizzaNumber(int pizzaNumber) {
 
+        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1]);
+    }
+
+
+    public static Pizza[] getPizzaArray() {
+
         Pizza[] pizzaMenu = new Pizza[10];
 
-        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1]);
-
-
-        /*for (int i = 0; i < 9; i++) {
+        for (int i = 0; i <= 9; i++) {
             pizzaMenu[i] = new Pizza(getPizzaID()[i], getPizzaPrices()[i], getPizzaName()[i]);
 
-        }*/
+        }
 
-        /*return pizzaMenu[pizzaNumber-1];*/
+        return pizzaMenu;
 
     }
+
+
 }
 
 
