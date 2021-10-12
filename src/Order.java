@@ -34,8 +34,8 @@ public class Order {
         return completedOrders;
     }
 
-    public String toString(int i) {
-        return "" + pizzas[i] + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
+    public String toString() {
+        return ;
     }
     //code of Balthazar end
 
