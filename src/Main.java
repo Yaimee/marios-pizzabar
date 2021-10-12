@@ -10,7 +10,7 @@ public class Main {
         int select = scan.nextInt();
         scan.nextLine();
         if (select == 1) {
-            for (int i = 0; i < getActiveOrders().length(); i++) {
+            for (int i = 0; i < Order.getActiveOrders().length; i++) {
 
             }
         } else if (select == 2) {
