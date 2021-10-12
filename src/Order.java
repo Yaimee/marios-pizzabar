@@ -34,6 +34,12 @@ public class Order {
         return completedOrders;
     }
 
+    public String getPizzas(Pizza[] pizzas) {
+        String pizzasConcatinated = "";
+        for (int i = 1; i <= pizzas.length; i++) {
+            pizzasConcatinated.concat(pizzas[i].toString().concat("\n"));
+        }
+    }
     public String toString() {
         return "" + pizzas + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
     }
