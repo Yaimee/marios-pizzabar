@@ -35,8 +35,13 @@ public class Order {
     }
 
     public String toString() {
-        return ;
+        return "" + pizzas + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
     }
+
+    public static void setActiveOrders(Order[] activeOrders) {
+        Order.activeOrders = activeOrders;
+    }
+
     //code of Balthazar end
 
 }
