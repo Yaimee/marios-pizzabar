@@ -6,26 +6,32 @@ public class Main {
     static boolean run;
 
     static public void mario() {
-        System.out.println("You've chosen Mario.\nWhat would you like to do?\n1. print orders\n2. print next pizza");
+        System.out.println("You've chosen Mario.\nWhat would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
         int select = scan.nextInt();
+        scan.nextLine();
         if (select == 1) {
 
         } else if (select == 2) {
             System.out.println("Next pizza is: ");
             System.out.println("");
+        } else if (select == 3) {
+            System.out.println("The menu is: ");
+            for(int i = 1; i <= 10; i++) {
+                System.out.println(Menu.getPizzaNumber(i));
+            }
         }
     }
 
     static public void alfonso() {
-        System.out.println("You've chosen Alfonso.\n What would you like to do?\n1. create new order\n");
-        int select = scan.nextInt();
+        System.out.println("You've chosen Alfonso. What would you like to do?\n1. create new order\n");
+
     }
 
     public static void main(String[] args) {
         do {
             run = false;
             try {
-                System.out.println("Which pizzaguy do you want to select? (alfonso/mario)");
+                System.out.println("Which pizza guy do you want to select? (alfonso/mario)");
                 String name = scan.nextLine();
                 if (name.equals("mario")) {
                     mario();
