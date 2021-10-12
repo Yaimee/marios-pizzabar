@@ -54,7 +54,7 @@ public class Main {
             Order.setActiveOrders(rearrageAccordingToPickupTime(Order.getActiveOrders().length));
             System.out.println(order.toString());
             do {
-                System.out.println("Would you like to create another order? (y/n)");
+                System.out.println("Would you like to create another order? (y/n).");
                 try {
                     String choice = scan.nextLine();
                     if (choice.equals("y")) {
