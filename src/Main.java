@@ -38,9 +38,6 @@ public class Main {
         int minimumTime = 0;
         do {
             System.out.println("witch pizza do you want to add (0 for no more pizzas)");
-            if (pizzaId == 0){
-                break;
-            }
             pizzaId = scanner.nextInt();
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
