@@ -22,12 +22,20 @@ public class Order {
         return activeOrders;
     }
 
+    public int getPickUpTime() {
+        return pickUpTime;
+    }
+
     public Pizza[] getPizzas() {
         return pizzas;
     }
 
     public static Order[] getCompletedOrders() {
         return completedOrders;
+    }
+
+    public String toString(int i) {
+        return "" + pizzas[i] + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
     }
     //code of Balthazar end
 

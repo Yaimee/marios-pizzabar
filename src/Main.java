@@ -6,11 +6,13 @@ public class Main {
     static boolean run;
 
     static public void mario() {
-        System.out.println("You've chosen Mario.\nWhat would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
+        System.out.println("You've chosen Mario. What would you like to do?\n1. print orders\n2. print next pizza\n3. print menu");
         int select = scan.nextInt();
         scan.nextLine();
         if (select == 1) {
+            for (int i = 0; i < getActiveOrders().length(); i++) {
 
+            }
         } else if (select == 2) {
             System.out.println("Next pizza is: ");
             System.out.println("");
@@ -36,7 +38,7 @@ public class Main {
         int pizzaId;
         int minimumTime = 0;
         do {
-            System.out.println("witch pizza do you want to add (0 for no more pizzas)");
+            System.out.println("Which pizza do you want to add (0 for no more pizzas)");
             pizzaId = scanner.nextInt();
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
