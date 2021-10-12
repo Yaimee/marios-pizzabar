@@ -1,5 +1,5 @@
 public class Menu {
-    //Code by Timmie
+    //Code by Timmie & Jacob - start
 
     public static int[] getPizzaID() {
         return new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
@@ -19,22 +19,7 @@ public class Menu {
 
         return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1]);
     }
-
-
-    public static Pizza[] getPizzaArray() {
-
-        Pizza[] pizzaMenu = new Pizza[10];
-
-        for (int i = 0; i <= 9; i++) {
-            pizzaMenu[i] = new Pizza(getPizzaID()[i], getPizzaPrices()[i], getPizzaName()[i]);
-
-        }
-
-        return pizzaMenu;
-
-    }
-
-
+    //Code by Timmie & Jacob - end
 }
 
 
