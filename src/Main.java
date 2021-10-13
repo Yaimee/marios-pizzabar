@@ -31,9 +31,14 @@ public class Main {
                         System.out.println(Menu.getPizzaNumber(i));
                     }
                 } else if (select == 4) {
-                    for (int i = 0; i < Order.getCompletedOrders().length; i++) {
-                        System.out.println(Order.getCompletedOrders()[i]);
-                    }//r
+                    try {
+                        for (int i = 0; i < Order.getCompletedOrders().length; i++) {
+                            System.out.println(Order.getCompletedOrders()[i]);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("\nNo orders completed.\n");
+                        run = true;
+                    }
                 } else {
                     System.out.println("Illegal value! Please try again.");
                 }
