@@ -163,7 +163,7 @@ public class Main {
         do {
             run = false;
             try {
-                System.out.println("Which pizza guy do you want to select? (\"1\" for alfonso/\"2\" for mario) or terminate the program? (\"y\")");
+                System.out.println("Which pizza guy do you want to select? (\"1\" for Mario/\"2\" for Alfonso) or terminate the program? (\"y\")");
                 String name = scan.nextLine();
                 if (name.equals("1")) {
                     mario();
