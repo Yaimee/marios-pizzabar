@@ -4,13 +4,15 @@ public class Pizza {
     private int id;
     private int price;
     private String name;
+    private String ingredient;
     private boolean completed;
 
 
-    public Pizza(int id, int price, String name) {
+    public Pizza(int id, int price, String name, String ingredient) {
         this.id = id;
         this.price = price;
         this.name = name;
+        this.ingredient = ingredient;
         this.completed = false;
     }
 
@@ -18,10 +20,10 @@ public class Pizza {
     public String toString() {
 
         StringBuilder dot = new StringBuilder();
-        for (int i = 0; i < 35-name.length(); i++) {
+        for (int i = 0; i < 80 - (name.length() + ingredient.length()); i++) {
             dot.append(".");
         }
-        return id + ".\t" + name + ":" +
+        return id + ".\t" + name + ": " + ingredient +
                 dot + price + ",-";
     }
     //Code by Jacob - end
