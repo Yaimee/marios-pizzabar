@@ -16,7 +16,7 @@ public class Pizza {
     public String toString() {
 
         StringBuilder dot = new StringBuilder();
-        for (int i = 0; i < 20-name.length(); i++) {
+        for (int i = 0; i < 35-name.length(); i++) {
             dot.append(".");
         }
         return id + ".\t" + name + ":" +
