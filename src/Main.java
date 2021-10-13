@@ -11,7 +11,7 @@ public class Main {
         do {
             run = false;
             try {
-                System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next order\n3. print menu\n4. print completed orders.");
+                System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next order\n3. print menu\n4. print completed orders\n5. print next pizza");
                 int select = scan.nextInt();
                 scan.nextLine();
                 if (select == 1) {
@@ -33,6 +33,13 @@ public class Main {
                 } else if (select == 4) {
                     for (int i = 0; i < Order.getCompletedOrders().length; i++) {
                         System.out.println(Order.getCompletedOrders()[i]);
+                    }
+                } else if (select == 5) {
+                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
+                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
+                            System.out.println(Order.getActiveOrders()[0].getPizzas()[i]);
+                            break;
+                        }
                     }
                 } else {
                     System.out.println("Illegal value! Please try again.");
