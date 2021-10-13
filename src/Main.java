@@ -51,7 +51,7 @@ public class Main {
             run = false;
             System.out.println("Create new order");
             Order order = createNewOrder();
-            Order.setActiveOrders(rearrageAccordingToPickupTime(Order.getActiveOrders().length));
+            Order.setActiveOrders(rearrangeAccordingToPickupTime(Order.getActiveOrders().length));
             System.out.println(order.toString());
             do {
                 System.out.println("Would you like to create another order? (y/n).");
@@ -74,7 +74,7 @@ public class Main {
     }
     //rasmus's kode slut
     //rasmus's kode start
-    public static Order[] rearrageAccordingToPickupTime (int length) {
+    public static Order[] rearrangeAccordingToPickupTime(int length) {
         Order[] ordersSorted = new Order[length];
         int[] pickUpTimeSorted = new int[length];
         for (int i = 0; i < length; i++) {

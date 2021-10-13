@@ -50,5 +50,4 @@ public class Order {
         Order.activeOrders = activeOrders;
     }
     //code of Balthazar end
-
 }
