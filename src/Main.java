@@ -111,7 +111,7 @@ public class Main {
             }
             newPizzas[newPizzas.length-1] = pizza;
             pizzas = newPizzas;
-            System.out.println("witch pizza do you want to add (0 for no more pizzas)");
+            System.out.println("which pizza do you want to add (0 for no more pizzas)");
             pizzaId = scan.nextInt();
             scan.nextLine();
         } while (pizzaId != 0);
