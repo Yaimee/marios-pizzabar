@@ -17,10 +17,18 @@ public class Menu {
                 "Bertil", "Silvia", "Victoria", "Toronfo", "Capricciosa"};
     }
 
+    public static String[] getPizzaIngredient() {
+        return new String[]{"tomatsauce, ost, skinke, oregano","tomatsauce, ost, oksefars og oregano",
+                "tomatsauce, ost, pepperoni og oregano", "tomatsauce, ost, kødsovs, spaghetti, cocktailpølser og oregano",
+                "tomatsauce, ost, skinke, pepperoni, cocktailpølser og oregano", "tomatsauce, ost, bacon og oregano",
+                "tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano", "tomatsauce, ost, skinke, ananas, champignon, løg og oregano",
+                "tomatsauce, ost, skinke, bacon, kebab, chili og oregano", "tomatsauce, ost, skinke, champignon og oregano"};
+    }
+
 
     public static Pizza getPizzaNumber(int pizzaNumber) {
         //We combine all the earlier arrays to show information for every pizza in one line, when shown in the console
-        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1]);
+        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1], getPizzaIngredient()[pizzaNumber-1]);
     }
     //Code by Timmie & Jacob - end
 }
