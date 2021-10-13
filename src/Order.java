@@ -44,7 +44,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return getPizzas(pizzas) + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
+        return getPizzas(pizzas) + "order number: " + orderNr + "\nhas to be ready at "  + pickUpTime + ".";
     }
 
     public static void setActiveOrders(Order[] activeOrders) {

@@ -38,11 +38,12 @@ public class Main {
                     System.out.println("Illegal value! Please try again.");
                 }
             } catch (Exception e) {
-                System.out.println("Illegal value! Try again.");
+                System.out.println("Illegal value! Please try again.");
                 run = true;
             }
         } while (run);
     }
+    //he
     //rasmus's kode slut
     //rasmus's kode start
     static public void alfonso() {
@@ -51,16 +52,18 @@ public class Main {
             run = false;
             System.out.println("Create new order");
             Order order = createNewOrder();
+            /*Tager array fra active orders, sætter dem i rækkefølge fra den bestilling med mindst pickUpTime
+             og den med størst pickUpTime i sidste element i array'et.*/
             Order.setActiveOrders(rearrangeAccordingToPickupTime(Order.getActiveOrders().length));
             System.out.println(order.toString());
             do {
                 System.out.println("Would you like to create another order? (y/n).");
                 try {
-                    String choice = scan.nextLine();
+                    String choice = scan.next();
                     if (choice.equals("y")) {
                         run = true;
                     } else if (choice.equals("n")) {
-                        System.out.println("Goodbye!");
+
                     } else {
                         System.out.println("Illegal value! Please try again.");
                         run2 = true;
@@ -74,7 +77,7 @@ public class Main {
     }
     //rasmus's kode slut
     //rasmus's kode start
-    public static Order[] rearrangeAccordingToPickupTime(int length) {
+    public static Order[] rearrangeAccordingToPickupTime (int length) {
         Order[] ordersSorted = new Order[length];
         int[] pickUpTimeSorted = new int[length];
         for (int i = 0; i < length; i++) {
@@ -99,8 +102,7 @@ public class Main {
         int orderNr = 0;
         System.out.println("which pizza do you want to add");
         pizzaId = scan.nextInt();
-
-        // add piza to list of pizzas
+        scan.nextLine();
         do {
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
@@ -111,9 +113,8 @@ public class Main {
             pizzas = newPizzas;
             System.out.println("witch pizza do you want to add (0 for no more pizzas)");
             pizzaId = scan.nextInt();
+            scan.nextLine();
         } while (pizzaId != 0);
-
-        // sets the pickuptime to be at least the minimum time
         try {
             for (int i = 0; i < Order.getActiveOrders().length; i++) {
                 minimumTime = minimumTime + Order.getActiveOrders()[i].getPizzas().length;
@@ -123,11 +124,10 @@ public class Main {
         }
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scan.nextInt();
+        scan.nextLine();
         if (pickUpTime < minimumTime){
             pickUpTime = minimumTime;
         }
-
-        //makes the orderNr
         try {
             orderNr = Order.getActiveOrders().length + Order.getCompletedOrders().length + 1;
         } catch (Exception exception){
@@ -141,8 +141,6 @@ public class Main {
                 }
             }
         }
-
-        //makes the order and then adds it to the active orders
         Order order = new Order(pizzas, pickUpTime, orderNr);
         Order[] activeOrders = Order.getActiveOrders();
         Order[] newActiveOrders;
@@ -165,14 +163,18 @@ public class Main {
         do {
             run = false;
             try {
-                System.out.println("Which pizza guy do you want to select? (alfonso/mario)");
+                System.out.println("Which pizza guy do you want to select? (\"1\" for Mario/\"2\" for Alfonso) or terminate the program? (\"y\")");
                 String name = scan.nextLine();
-                if (name.equals("mario")) {
+                if (name.equals("1")) {
                     mario();
-                } else if (name.equals("alfonso")) {
+                    run = true;
+                } else if (name.equals("2")) {
                     alfonso();
+                    run = true;
+                } else if (name.equals("y")){
+                    System.out.println("Goodbye!");
                 } else {
-                    System.out.println("Illegal value!");
+                    System.out.println("Illegal value! Please try again.");
                     run = true;
                 }
             } catch (Exception e) {
