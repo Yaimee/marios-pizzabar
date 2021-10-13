@@ -136,10 +136,10 @@ public class Main {
         } while (pizzaId != 0);
         try {
             for (int i = 0; i < Order.getActiveOrders().length; i++) {
-                minimumTime = minimumTime + Order.getActiveOrders()[i].getPizzas().length;
+                minimumTime = Order.getActiveOrders()[i].getPizzas().length * 15 + pizzas.length * 15;
             }
         } catch (Exception e) {
-            minimumTime = 15;
+            minimumTime = pizzas.length * 15;
         }
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scan.nextInt();
