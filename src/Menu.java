@@ -1,4 +1,3 @@
-//The class that is suppose to give back the information of every pizzas name, price and ID
 public class Menu {
     //Code by Timmie & Jacob - start
 
@@ -18,11 +17,18 @@ public class Menu {
                 "Bertil", "Silvia", "Victoria", "Toronfo", "Capricciosa"};
     }
 
-    public static Pizza getPizzaNumber(int pizzaNumber) {
+    public static String[] getPizzaIngredient() {
+        return new String[]{"tomatsauce, ost, skinke, oregano","tomatsauce, ost, oksefars og oregano",
+                "tomatsauce, ost, pepperoni og oregano", "tomatsauce, ost, kødsovs, spaghetti, cocktailpølser og oregano",
+                "tomatsauce, ost, skinke, pepperoni, cocktailpølser og oregano", "tomatsauce, ost, bacon og oregano",
+                "tomatsauce, ost, pepperoni, rød peber, løg, oliven og oregano", "tomatsauce, ost, skinke, ananas, champignon, løg og oregano",
+                "tomatsauce, ost, skinke, bacon, kebab, chili og oregano", "tomatsauce, ost, skinke, champignon og oregano"};
+    }
 
+
+    public static Pizza getPizzaNumber(int pizzaNumber) {
         //We combine all the earlier arrays to show information for every pizza in one line, when shown in the console
-        //And since array index starts at 0, do we have to minus our arrays with one, so it lines up to every pizza
-        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1]);
+        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1], getPizzaIngredient()[pizzaNumber-1]);
     }
     //Code by Timmie & Jacob - end
 }
