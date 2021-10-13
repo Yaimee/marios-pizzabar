@@ -99,6 +99,8 @@ public class Main {
         int orderNr = 0;
         System.out.println("which pizza do you want to add");
         pizzaId = scan.nextInt();
+
+        // add piza to list of pizzas
         do {
             Pizza pizza = Menu.getPizzaNumber(pizzaId);
             Pizza[] newPizzas = new Pizza[pizzas.length+1];
@@ -110,6 +112,8 @@ public class Main {
             System.out.println("witch pizza do you want to add (0 for no more pizzas)");
             pizzaId = scan.nextInt();
         } while (pizzaId != 0);
+
+        // sets the pickuptime to be at least the minimum time
         try {
             for (int i = 0; i < Order.getActiveOrders().length; i++) {
                 minimumTime = minimumTime + Order.getActiveOrders()[i].getPizzas().length;
@@ -122,6 +126,8 @@ public class Main {
         if (pickUpTime < minimumTime){
             pickUpTime = minimumTime;
         }
+
+        //makes the orderNr
         try {
             orderNr = Order.getActiveOrders().length + Order.getCompletedOrders().length + 1;
         } catch (Exception exception){
@@ -135,6 +141,8 @@ public class Main {
                 }
             }
         }
+
+        //makes the order and then adds it to the active orders
         Order order = new Order(pizzas, pickUpTime, orderNr);
         Order[] activeOrders = Order.getActiveOrders();
         Order[] newActiveOrders;

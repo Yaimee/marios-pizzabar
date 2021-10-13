@@ -1,5 +1,5 @@
 public class Pizza {
-    //Code by Timmie & Jacob - start
+    //Code by Jacob - start
 
     private int id;
     private int price;
@@ -14,10 +14,15 @@ public class Pizza {
 
     @Override
     public String toString() {
-        return id + ".\t" + name + ":....................." +
-                price + ",-";
+
+        StringBuilder dot = new StringBuilder();
+        for (int i = 0; i < 20-name.length(); i++) {
+            dot.append(".");
+        }
+        return id + ".\t" + name + ":" +
+                dot + price + ",-";
     }
-    //Code by Timmie & Jacob - end
+    //Code by Jacob - end
 
     //Code by Balthazar - start
     public String getName() {
