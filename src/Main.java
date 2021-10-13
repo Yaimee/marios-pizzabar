@@ -33,7 +33,7 @@ public class Main {
                 } else if (select == 4) {
                     for (int i = 0; i < Order.getCompletedOrders().length; i++) {
                         System.out.println(Order.getCompletedOrders()[i]);
-                    }
+                    }//r
                 } else {
                     System.out.println("Illegal value! Please try again.");
                 }
