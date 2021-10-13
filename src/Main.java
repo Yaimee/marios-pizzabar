@@ -11,7 +11,7 @@ public class Main {
         do {
             run = false;
             try {
-                System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next order\n3. print menu\n4. print completed orders.");
+                System.out.println("You've chosen Mario. What would you like to do?\n1. print active orders\n2. print next order\n3. print menu\n4. print completed orders\n5. print next pizza\n6. next pizza done");
                 int select = scan.nextInt();
                 scan.nextLine();
                 if (select == 1) {
@@ -31,8 +31,27 @@ public class Main {
                         System.out.println(Menu.getPizzaNumber(i));
                     }
                 } else if (select == 4) {
-                    for (int i = 0; i < Order.getCompletedOrders().length; i++) {
-                        System.out.println(Order.getCompletedOrders()[i]);
+                    try {
+                        for (int i = 0; i < Order.getCompletedOrders().length; i++) {
+                            System.out.println(Order.getCompletedOrders()[i]);
+                        }
+                    } catch (Exception e) {
+                        System.out.println("\nNo orders completed.\n");
+                        run = true;
+                    }
+                } else if (select == 5) {
+                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
+                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
+                            System.out.println(Order.getActiveOrders()[0].getPizzas()[i]);
+                            break;
+                        }
+                    }
+                } else if (select == 6) {
+                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
+                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
+                            Order.getActiveOrders()[0].getPizzas()[i].setCompleted(true);
+                            break;
+                        }
                     }
                 } else {
                     System.out.println("Illegal value! Please try again.");
