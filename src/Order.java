@@ -50,5 +50,26 @@ public class Order {
     public static void setActiveOrders(Order[] activeOrders) {
         Order.activeOrders = activeOrders;
     }
+
+    public static Pizza[] getActivePizzas(){
+        Pizza[] activePizzas = new Pizza[0];
+        Pizza[] placeHolderPizzas;
+        for (int i = 0; i < activeOrders.length; i++) {
+            for (int j = 0; j < activeOrders[i].pizzas.length; j++) {
+                placeHolderPizzas = activePizzas;
+                activePizzas = new Pizza[placeHolderPizzas.length+1];
+                for (int k = 0; k < placeHolderPizzas.length; k++) {
+                    activePizzas[k] = placeHolderPizzas[k];
+                }
+                activePizzas[placeHolderPizzas.length] = activeOrders[i].pizzas[j];
+            }
+        }
+        return activePizzas;
+    }
+
+    public static void setCompletedOrders(Order[] completedOrders) {
+        Order.completedOrders = completedOrders;
+    }
+
     //code of Balthazar end
 }
