@@ -59,7 +59,7 @@ public class Main {
             do {
                 System.out.println("Would you like to create another order? (y/n).");
                 try {
-                    String choice = scan.nextLine();
+                    String choice = scan.next();
                     if (choice.equals("y")) {
                         run = true;
                     } else if (choice.equals("n")) {
