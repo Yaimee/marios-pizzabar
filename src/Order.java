@@ -34,14 +34,21 @@ public class Order {
         return completedOrders;
     }
 
+    public String getPizzas(Pizza[] pizzas) {
+        String pizzasConcatinated = "";
+        for (int i = 0; i < pizzas.length; i++) {
+            pizzasConcatinated = pizzasConcatinated + pizzas[i].toString() + "\n";
+        }
+        return pizzasConcatinated;
+    }
+    @Override
     public String toString() {
-        return "" + pizzas + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
+        return getPizzas(pizzas) + ", with order number: " + orderNr + " has to be ready at "  + pickUpTime + ".";
     }
 
     public static void setActiveOrders(Order[] activeOrders) {
         Order.activeOrders = activeOrders;
     }
-
     //code of Balthazar end
 
 }
