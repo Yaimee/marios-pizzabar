@@ -141,6 +141,7 @@ public class Main {
         } catch (Exception e) {
             minimumTime = 15;
         }
+        //r
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scan.nextInt();
         scan.nextLine();
