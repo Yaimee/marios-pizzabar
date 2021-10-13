@@ -59,7 +59,7 @@ public class Main {
             do {
                 System.out.println("Would you like to create another order? (y/n).");
                 try {
-                    String choice = scan.next();
+                    String choice = scan.nextLine();
                     if (choice.equals("y")) {
                         run = true;
                     } else if (choice.equals("n")) {
@@ -111,7 +111,7 @@ public class Main {
             }
             newPizzas[newPizzas.length-1] = pizza;
             pizzas = newPizzas;
-            System.out.println("witch pizza do you want to add (0 for no more pizzas)");
+            System.out.println("which pizza do you want to add (0 for no more pizzas)");
             pizzaId = scan.nextInt();
             scan.nextLine();
         } while (pizzaId != 0);
@@ -157,7 +157,7 @@ public class Main {
         return order;
     }
     // code of Balthazar(end)
-
+    //n
     public static void main(String[] args) {
         // rasmus's kode start
         do {
