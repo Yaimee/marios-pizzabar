@@ -39,6 +39,8 @@ public class Main {
                         System.out.println("\nNo orders completed.\n");
                         run = true;
                     }
+                    //rasmus's kode slut
+                    // code of balthazar (start)
                 } else if (select == 5) {
                     for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
                         if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
@@ -78,6 +80,8 @@ public class Main {
                         }
                         Order.setActiveOrders(placeHolderOrders);
                     }
+                    //code of balthazar (end)
+                    //rasmus's kode start
                 } else {
                     System.out.println("Illegal value! Please try again.");
                 }
