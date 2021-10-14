@@ -39,6 +39,8 @@ public class Main {
                         System.out.println("\nNo orders completed.\n");
                         run = true;
                     }
+                    //rasmus's kode slut
+                    // code of balthazar (start)
                 } else if (select == 5) {
                     for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
                         if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
@@ -47,12 +49,39 @@ public class Main {
                         }
                     }
                 } else if (select == 6) {
+                    boolean orderDone = true;
                     for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
                         if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
                             Order.getActiveOrders()[0].getPizzas()[i].setCompleted(true);
+                            for (int j = 0; j < Order.getActiveOrders()[0].getPizzas().length; j++) {
+                                if (!Order.getActiveOrders()[0].getPizzas()[j].isCompleted()) {
+                                    orderDone = false;
+                                }
+                            }
                             break;
                         }
                     }
+                    if (orderDone == true){
+                        Order[] placeHolderOrders;
+                        try {
+                            placeHolderOrders = new Order[Order.getCompletedOrders().length + 1];
+                            for (int i = 0; i < Order.getCompletedOrders().length; i++) {
+                                placeHolderOrders[i] = Order.getCompletedOrders()[i];
+                                placeHolderOrders[Order.getCompletedOrders().length] = Order.getActiveOrders()[0];
+                            }
+                        } catch (Exception e){
+                            placeHolderOrders = new Order[1];
+                            placeHolderOrders[0] = Order.getActiveOrders()[0];
+                        }
+                        Order.setCompletedOrders(placeHolderOrders);
+                        placeHolderOrders = new Order[Order.getActiveOrders().length-1] ;
+                        for (int i = 0; i < Order.getActiveOrders().length-1; i++) {
+                            placeHolderOrders[i] = Order.getActiveOrders()[i+1];
+                        }
+                        Order.setActiveOrders(placeHolderOrders);
+                    }
+                    //code of balthazar (end)
+                    //rasmus's kode start
                 } else {
                     System.out.println("Illegal value! Please try again.");
                 }
@@ -135,9 +164,7 @@ public class Main {
             scan.nextLine();
         } while (pizzaId != 0);
         try {
-            for (int i = 0; i < Order.getActiveOrders().length; i++) {
-                minimumTime = Order.getActiveOrders()[i].getPizzas().length * 15 + pizzas.length * 15;
-            }
+                minimumTime = Order.getActivePizzas().length * 15 + pizzas.length * 15;
         } catch (Exception e) {
             minimumTime = pizzas.length * 15;
         }
