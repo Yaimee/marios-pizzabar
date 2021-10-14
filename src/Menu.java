@@ -7,7 +7,7 @@ public class Menu {
     }
 
     //Adds the prices for every pizza via an array
-    public static int[] getPizzaPrices() {
+    public static int[] getPizzaPrice() {
         return new int[]{57, 53, 57, 63, 65, 57, 61, 61, 61, 61};
     }
 
@@ -16,7 +16,7 @@ public class Menu {
         return new String[]{"Vesuvio", "Amerikaner", "Cacciatore", "Carbona", "Dennis",
                 "Bertil", "Silvia", "Victoria", "Toronfo", "Capricciosa"};
     }
-
+    //Adds every pizza ingredient via an array
     public static String[] getPizzaIngredient() {
         return new String[]{"tomatsauce, ost, skinke, oregano","tomatsauce, ost, oksefars og oregano",
                 "tomatsauce, ost, pepperoni og oregano", "tomatsauce, ost, kødsovs, spaghetti, cocktailpølser og oregano",
@@ -28,7 +28,7 @@ public class Menu {
 
     public static Pizza getPizzaNumber(int pizzaNumber) {
         //We combine all the earlier arrays to show information for every pizza in one line, when shown in the console
-        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrices()[pizzaNumber-1], getPizzaName()[pizzaNumber-1], getPizzaIngredient()[pizzaNumber-1]);
+        return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrice()[pizzaNumber-1], getPizzaName()[pizzaNumber-1], getPizzaIngredient()[pizzaNumber-1]);
     }
     //Code by Timmie & Jacob - end
 }

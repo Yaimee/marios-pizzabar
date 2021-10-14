@@ -39,20 +39,49 @@ public class Main {
                         System.out.println("\nNo orders completed.\n");
                         run = true;
                     }
+                    //rasmus's kode slut
+                    // code of balthazar (start)
                 } else if (select == 5) {
-                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
-                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
-                            System.out.println(Order.getActiveOrders()[0].getPizzas()[i]);
+                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
+                        if (!Order.getActiveOrders()[0].pizzasToString()[i].getCompleted()) {
+                            System.out.println(Order.getActiveOrders()[0].pizzasToString()[i]);
                             break;
                         }
                     }
                 } else if (select == 6) {
-                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
-                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
-                            Order.getActiveOrders()[0].getPizzas()[i].setCompleted(true);
+                    boolean orderDone = true;
+                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
+                        if (!Order.getActiveOrders()[0].pizzasToString()[i].getCompleted()) {
+                            Order.getActiveOrders()[0].pizzasToString()[i].setCompleted(true);
+                            for (int j = 0; j < Order.getActiveOrders()[0].pizzasToString().length; j++) {
+                                if (!Order.getActiveOrders()[0].pizzasToString()[j].getCompleted()) {
+                                    orderDone = false;
+                                }
+                            }
                             break;
                         }
                     }
+                    if (orderDone == true){
+                        Order[] placeHolderOrders;
+                        try {
+                            placeHolderOrders = new Order[Order.getCompletedOrders().length + 1];
+                            for (int i = 0; i < Order.getCompletedOrders().length; i++) {
+                                placeHolderOrders[i] = Order.getCompletedOrders()[i];
+                                placeHolderOrders[Order.getCompletedOrders().length] = Order.getActiveOrders()[0];
+                            }
+                        } catch (Exception e){
+                            placeHolderOrders = new Order[1];
+                            placeHolderOrders[0] = Order.getActiveOrders()[0];
+                        }
+                        Order.setCompletedOrders(placeHolderOrders);
+                        placeHolderOrders = new Order[Order.getActiveOrders().length-1] ;
+                        for (int i = 0; i < Order.getActiveOrders().length-1; i++) {
+                            placeHolderOrders[i] = Order.getActiveOrders()[i+1];
+                        }
+                        Order.setActiveOrders(placeHolderOrders);
+                    }
+                    //code of balthazar (end)
+                    //rasmus's kode start
                 } else {
                     System.out.println("Illegal value! Please try again.");
                 }
@@ -73,7 +102,7 @@ public class Main {
             Order order = createNewOrder();
             /*Tager array fra active orders, sætter dem i rækkefølge fra den bestilling med mindst pickUpTime
              og den med størst pickUpTime i sidste element i array'et.*/
-            Order.setActiveOrders(rearrangeAccordingToPickupTime(Order.getActiveOrders().length));
+            Order.setActiveOrders(rearrangeActiveOrders(Order.getActiveOrders().length));
             System.out.println(order.toString());
             do {
                 System.out.println("Would you like to create another order? (y/n).");
@@ -96,7 +125,7 @@ public class Main {
     }
     //rasmus's kode slut
     //rasmus's kode start
-    public static Order[] rearrangeAccordingToPickupTime (int length) {
+    public static Order[] rearrangeActiveOrders(int length) {
         Order[] ordersSorted = new Order[length];
         int[] pickUpTimeSorted = new int[length];
         for (int i = 0; i < length; i++) {
@@ -135,9 +164,7 @@ public class Main {
             scan.nextLine();
         } while (pizzaId != 0);
         try {
-            for (int i = 0; i < Order.getActiveOrders().length; i++) {
-                minimumTime = Order.getActiveOrders()[i].getPizzas().length * 15 + pizzas.length * 15;
-            }
+                minimumTime = Order.getActivePizzas().length * 15 + pizzas.length * 15;
         } catch (Exception e) {
             minimumTime = pizzas.length * 15;
         }

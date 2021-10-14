@@ -33,7 +33,7 @@ public class Pizza {
         return name;
     }
 
-    public boolean isCompleted() {
+    public boolean getCompleted() {
         return completed;
     }
 
