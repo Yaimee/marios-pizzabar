@@ -26,7 +26,7 @@ public class Order {
         return pickUpTime;
     }
 
-    public Pizza[] getPizzas() {
+    public Pizza[] pizzasToString() {
         return pizzas;
     }
 
@@ -34,7 +34,7 @@ public class Order {
         return completedOrders;
     }
 
-    public String getPizzas(Pizza[] pizzas) {
+    public String pizzasToString(Pizza[] pizzas) {
         String pizzasConcatinated = "";
         for (int i = 0; i < pizzas.length; i++) {
             pizzasConcatinated = pizzasConcatinated + pizzas[i].toString() + "\n";
@@ -44,7 +44,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return getPizzas(pizzas) + "order number: " + orderNr + "\nhas to be ready at "  + pickUpTime + ".";
+        return pizzasToString(pizzas) + "order number: " + orderNr + "\nhas to be ready at "  + pickUpTime + ".";
     }
 
     public static void setActiveOrders(Order[] activeOrders) {

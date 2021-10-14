@@ -42,19 +42,19 @@ public class Main {
                     //rasmus's kode slut
                     // code of balthazar (start)
                 } else if (select == 5) {
-                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
-                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
-                            System.out.println(Order.getActiveOrders()[0].getPizzas()[i]);
+                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
+                        if (!Order.getActiveOrders()[0].pizzasToString()[i].isCompleted()) {
+                            System.out.println(Order.getActiveOrders()[0].pizzasToString()[i]);
                             break;
                         }
                     }
                 } else if (select == 6) {
                     boolean orderDone = true;
-                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
-                        if (!Order.getActiveOrders()[0].getPizzas()[i].isCompleted()) {
-                            Order.getActiveOrders()[0].getPizzas()[i].setCompleted(true);
-                            for (int j = 0; j < Order.getActiveOrders()[0].getPizzas().length; j++) {
-                                if (!Order.getActiveOrders()[0].getPizzas()[j].isCompleted()) {
+                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
+                        if (!Order.getActiveOrders()[0].pizzasToString()[i].isCompleted()) {
+                            Order.getActiveOrders()[0].pizzasToString()[i].setCompleted(true);
+                            for (int j = 0; j < Order.getActiveOrders()[0].pizzasToString().length; j++) {
+                                if (!Order.getActiveOrders()[0].pizzasToString()[j].isCompleted()) {
                                     orderDone = false;
                                 }
                             }
