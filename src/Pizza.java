@@ -1,13 +1,14 @@
 public class Pizza {
     //Code by Jacob - start
 
+    //Attributes for our class Pizza
     private int id;
     private int price;
     private String name;
     private String ingredient;
     private boolean completed;
 
-
+    //Constructor
     public Pizza(int id, int price, String name, String ingredient) {
         this.id = id;
         this.price = price;
