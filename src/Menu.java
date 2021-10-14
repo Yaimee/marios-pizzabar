@@ -16,7 +16,7 @@ public class Menu {
         return new String[]{"Vesuvio", "Amerikaner", "Cacciatore", "Carbona", "Dennis",
                 "Bertil", "Silvia", "Victoria", "Toronfo", "Capricciosa"};
     }
-
+    //Adds every pizza ingredient via an array
     public static String[] getPizzaIngredient() {
         return new String[]{"tomatsauce, ost, skinke, oregano","tomatsauce, ost, oksefars og oregano",
                 "tomatsauce, ost, pepperoni og oregano", "tomatsauce, ost, kødsovs, spaghetti, cocktailpølser og oregano",
