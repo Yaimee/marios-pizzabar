@@ -8,10 +8,6 @@ public class Order {
     private static Order[] activeOrders;
     private static Order[] completedOrders;
 
-    public String toReciept(){
-        return "order number: " + orderNr + "\n" + Arrays.toString(pizzas);
-    }
-
     public Order(Pizza[] pizzas, int pickUpTime, int orderNr) {
         this.pizzas = pizzas;
         this.pickUpTime = pickUpTime;
