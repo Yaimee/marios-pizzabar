@@ -31,14 +31,17 @@ public class Pizza {
     //Code by Jacob - end
 
     //Code by Balthazar - start
+    //method returns the name of a pizza
     public String getName() {
         return name;
     }
 
+    //method returns the completed boolean of a pizza object
     public boolean getCompleted() {
         return completed;
     }
 
+    //method sets the completed boolean of a pizza object
     public void setCompleted(boolean completed) {
         this.completed = completed;
     }

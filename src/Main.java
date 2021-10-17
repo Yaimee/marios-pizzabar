@@ -42,19 +42,19 @@ public class Main {
                     //rasmus's kode slut
                     // code of balthazar (start)
                 } else if (select == 5) {
-                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
-                        if (!Order.getActiveOrders()[0].pizzasToString()[i].getCompleted()) {
-                            System.out.println(Order.getActiveOrders()[0].pizzasToString()[i]);
+                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
+                        if (!Order.getActiveOrders()[0].getPizzas()[i].getCompleted()) {
+                            System.out.println(Order.getActiveOrders()[0].getPizzas()[i]);
                             break;
                         }
                     }
                 } else if (select == 6) {
                     boolean orderDone = true;
-                    for (int i = 0; i < Order.getActiveOrders()[0].pizzasToString().length; i++) {
-                        if (!Order.getActiveOrders()[0].pizzasToString()[i].getCompleted()) {
-                            Order.getActiveOrders()[0].pizzasToString()[i].setCompleted(true);
-                            for (int j = 0; j < Order.getActiveOrders()[0].pizzasToString().length; j++) {
-                                if (!Order.getActiveOrders()[0].pizzasToString()[j].getCompleted()) {
+                    for (int i = 0; i < Order.getActiveOrders()[0].getPizzas().length; i++) {
+                        if (!Order.getActiveOrders()[0].getPizzas()[i].getCompleted()) {
+                            Order.getActiveOrders()[0].getPizzas()[i].setCompleted(true);
+                            for (int j = 0; j < Order.getActiveOrders()[0].getPizzas().length; j++) {
+                                if (!Order.getActiveOrders()[0].getPizzas()[j].getCompleted()) {
                                     orderDone = false;
                                 }
                             }
@@ -170,7 +170,7 @@ public class Main {
         } catch (Exception e) {
             minimumTime = pizzas.length * 15;
         }
-        //r
+        //sets the pick up time to be no less than the minimum time
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scan.nextInt();
         scan.nextLine();

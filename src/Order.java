@@ -6,24 +6,29 @@ public class Order {
     private static Order[] activeOrders;
     private static Order[] completedOrders;
 
+    //Constructor (utilized in class Main)
     public Order(Pizza[] pizzas, int pickUpTime, int orderNr) {
         this.pizzas = pizzas;
         this.pickUpTime = pickUpTime;
         this.orderNr = orderNr;
     }
 
+    //method returns the activeOrders array
     public static Order[] getActiveOrders() {
         return activeOrders;
     }
 
+    //method returns the pickupTime of an Order object
     public int getPickUpTime() {
         return pickUpTime;
     }
 
-    public Pizza[] pizzasToString() {
+    //method returns the pizzas of an order object
+    public Pizza[] getPizzas() {
         return pizzas;
     }
 
+    //method returns the completedOrders array
     public static Order[] getCompletedOrders() {
         return completedOrders;
     }
@@ -38,10 +43,12 @@ public class Order {
     }
 
     @Override
+    //Customized toString that prints a formatted version of an Order object
     public String toString() {
         return pizzasToString(pizzas) + "order number: " + orderNr + "\nhas to be ready at "  + pickUpTime + ".";
     }
 
+    //method sets the activeOrders array
     public static void setActiveOrders(Order[] activeOrders) {
         Order.activeOrders = activeOrders;
     }
@@ -63,6 +70,7 @@ public class Order {
         return activePizzas;
     }
 
+    //method sets the completedOrders array
     public static void setCompletedOrders(Order[] completedOrders) {
         Order.completedOrders = completedOrders;
     }
