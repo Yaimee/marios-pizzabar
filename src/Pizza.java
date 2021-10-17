@@ -1,13 +1,14 @@
 public class Pizza {
     //Code by Jacob - start
 
+    //Attributes of class Pizza
     private int id;
     private int price;
     private String name;
     private String ingredient;
     private boolean completed;
 
-
+    //Constructor (utilized in class Menu)
     public Pizza(int id, int price, String name, String ingredient) {
         this.id = id;
         this.price = price;
@@ -17,6 +18,7 @@ public class Pizza {
     }
 
     @Override
+    //Customized toString that prints a formatted version of a Pizza object
     public String toString() {
 
         StringBuilder dot = new StringBuilder();

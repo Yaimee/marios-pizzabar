@@ -170,6 +170,7 @@ public class Main {
         } catch (Exception e) {
             minimumTime = pizzas.length * 15;
         }
+        //r
         System.out.println("what time do you want your order picked up? (minimum: " + minimumTime +")");
         int pickUpTime = scan.nextInt();
         scan.nextLine();

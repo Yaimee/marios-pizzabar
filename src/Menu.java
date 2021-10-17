@@ -1,22 +1,22 @@
 public class Menu {
     //Code by Timmie & Jacob - start
 
-    //Adds the ID of every Pizza via an array
+    //Method returns an element of an int array, which holds pizza id values
     public static int[] getPizzaID() {
         return new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
     }
 
-    //Adds the prices for every pizza via an array
+    //Method returns an element of an int array, which holds pizza price values
     public static int[] getPizzaPrice() {
         return new int[]{57, 53, 57, 63, 65, 57, 61, 61, 61, 61};
     }
 
-    //Adds every pizza name via an array
+    //Method returns an element of a String array, which holds pizza names
     public static String[] getPizzaName() {
         return new String[]{"Vesuvio", "Amerikaner", "Cacciatore", "Carbona", "Dennis",
                 "Bertil", "Silvia", "Victoria", "Toronfo", "Capricciosa"};
     }
-    //Adds every pizza ingredient via an array
+    //Method returns an element of a String array, which holds pizza ingredients
     public static String[] getPizzaIngredient() {
         return new String[]{"tomatsauce, ost, skinke, oregano","tomatsauce, ost, oksefars og oregano",
                 "tomatsauce, ost, pepperoni og oregano", "tomatsauce, ost, kødsovs, spaghetti, cocktailpølser og oregano",
@@ -27,7 +27,7 @@ public class Menu {
 
 
     public static Pizza getPizzaNumber(int pizzaNumber) {
-        //We combine all the earlier arrays to show information for every pizza in one line, when shown in the console
+        //Based upon the value of pizzaNumber, an object of type Pizza is created with matching attributes, and is then returned to whichever place it was called
         return new Pizza(getPizzaID()[pizzaNumber-1], getPizzaPrice()[pizzaNumber-1], getPizzaName()[pizzaNumber-1], getPizzaIngredient()[pizzaNumber-1]);
     }
     //Code by Timmie & Jacob - end
