@@ -148,6 +148,7 @@ public class Main {
         int pizzaId;
         int minimumTime = 0;
         int orderNr = 0;
+        //creates and adds the pizzas
         System.out.println("which pizza do you want to add");
         pizzaId = scan.nextInt();
         scan.nextLine();
@@ -163,6 +164,7 @@ public class Main {
             pizzaId = scan.nextInt();
             scan.nextLine();
         } while (pizzaId != 0);
+        //sets the pickup time to be no less than the minimum time
         try {
                 minimumTime = Order.getActivePizzas().length * 15 + pizzas.length * 15;
         } catch (Exception e) {
@@ -174,6 +176,7 @@ public class Main {
         if (pickUpTime < minimumTime){
             pickUpTime = minimumTime;
         }
+        //sets the order nr
         try {
             orderNr = Order.getActiveOrders().length + Order.getCompletedOrders().length + 1;
         } catch (Exception exception){
@@ -187,6 +190,7 @@ public class Main {
                 }
             }
         }
+        //adds the order to active orders
         Order order = new Order(pizzas, pickUpTime, orderNr);
         Order[] activeOrders = Order.getActiveOrders();
         Order[] newActiveOrders;

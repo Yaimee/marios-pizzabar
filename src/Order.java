@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Order {
     //code of Balthazar start
     private Pizza[] pizzas;
@@ -30,6 +28,7 @@ public class Order {
         return completedOrders;
     }
 
+    //makes a string of the pizzas using the .toSring method
     public String pizzasToString(Pizza[] pizzas) {
         String pizzasConcatinated = "";
         for (int i = 0; i < pizzas.length; i++) {
@@ -47,6 +46,7 @@ public class Order {
         Order.activeOrders = activeOrders;
     }
 
+    //returns all pizzas in all active orders
     public static Pizza[] getActivePizzas(){
         Pizza[] activePizzas = new Pizza[0];
         Pizza[] placeHolderPizzas;
